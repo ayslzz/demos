@@ -15,6 +15,28 @@ struct ListNode
     int val;
 };
 
+// 当需要涉及修改头指针的时候，一般使用二级指针指向头指针的地址，或者使用dummy node指向头节点
+
+struct ListNode* deleteDuplicates_2(struct ListNode* head) {
+    struct ListNode *cur;
+
+    cur = head;
+    while (cur) {
+        if (cur->next && cur->next->val == cur->val) {
+            struct ListNode *tmp;
+
+            tmp = cur;
+            while (tmp && tmp->val == cur->val)
+                tmp = tmp->next;
+
+            cur->next = tmp;
+        }
+        cur = cur->next;
+    }
+
+    return head;
+}
+
 struct ListNode* deleteDuplicates(struct ListNode *head) {
     struct ListNode *cur = head;
 

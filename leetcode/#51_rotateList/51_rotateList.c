@@ -6,6 +6,9 @@ struct ListNode
     int val;
 };
 
+// 这个题要注意k的范围，先求出链表长度len，然后 k %= len，求出合法k值
+// 在遍历链表时，若伴随带有下标的循环，那么cur的初始值是头结点的话，指针的变化就和下标的变化一致了
+
 // 第一次想到的方案，使用快慢指针
 struct ListNode* rotateRight(struct ListNode *head, int k)
 {

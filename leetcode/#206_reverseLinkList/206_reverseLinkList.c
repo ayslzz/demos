@@ -14,6 +14,10 @@ struct ListNode
     int val;
 };
 
+// null 1 -> 2 -> 3 -> 4 -> 5 -> null
+// 就地逆置链表，就是把每个节点的next指针指向前面的节点
+// head用来遍历链表，cur总是指向head 前面的节点，当head为null时，cur就是新的链表头
+
 struct ListNode* _reverseList(struct ListNode *head)
 {
     struct ListNode *cur, *next;
